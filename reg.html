@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registerpage</title>
+    <style>
+        *{
+            outline: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        nav{
+            width: 100%;
+            height: 15vh;
+            background-color: crimson;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        a{
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+        }
+        .card{
+            width: 300px;
+            height: 400px;
+            background-color: chocolate;
+            box-shadow: 10px 5px 10px #555;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-top: 40px;
+            margin-left: 30%;
+        }
+        .card input{
+            width: 200px;
+            height: 20px;
+            
+        }
+        button{
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <a href="login.html">Login</a>
+    </nav>
+    <div class="card">
+    <div id="err" style="color: rgb(218, 205, 205);"></div>
+    <input type="text" placeholder="Enter your name" id="t1"/>
+    <input type="password" placeholder="Enter password" id="t2"/>
+    <input type="password" placeholder="Enter password" id="t3"/>
+    <button onclick="reg()">Register</button></div>
+    <script>
+        let reg=()=>{
+            let t1=document.getElementById("t1")
+            let t2=document.getElementById("t2")
+            let t3=document.getElementById("t3")
+            let dref=document.getElementById("err")
+
+            let res=localStorage.getItem(t1.value)
+            if(res!=undefined)
+            {
+                dref.innerHTML="user id already exist"
+            }
+            else{
+                if(t2.value==t2.value){
+                    localStorage.setItem(t1.value,t2.value)
+                    window.location="login.html"
+                }
+                else{
+                    dref.innerHTML="Check password"
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
